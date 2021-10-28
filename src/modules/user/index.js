@@ -23,13 +23,15 @@ class User extends Component {
           prof.splice(index,1)
           this.setState({profiles: prof})
         }
-        function ch (event) {
+        
+        function  handleOnChange (event) {
           const {checked} = event
           this.setState({checked: !this.state.checked});
+          li.className.add('Active')
           console.log(elem.name)
-          console.log(this.state.checked)
+          //console.log(this.state.checked)
         }
-        return  <li key={index}  className='Car'>{elem.img} {elem.name} {elem.surname} <input name={elem.name} checked={this.state.profiles.checked}  type='checkbox' onChange={ch.bind(this)}/><button onClick={del}>Del</button></li>
+        return  <li key={index}  className=''>{elem.img} {elem.name} {elem.surname} <input name={elem.name} type='checkbox' checked={elem.checked} onChange={handleOnChange.bind(this)}/><button onClick={del}>Del</button></li>
       })
       return (
         <article  >
