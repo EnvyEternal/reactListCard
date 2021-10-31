@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import style from '../user/style.css';
 
 class User extends Component {
     constructor(props) {
@@ -8,9 +8,9 @@ class User extends Component {
       this.state = {
         //checked: false,
         profiles : [
-          {id: 1, img:'', name:'Jhon',surname:'Fox', checked: false},
-          {id: 2, img:'', name:'Shally',surname:'Red', checked: false},
-          {id: 3, img:'', name:'Greg',surname:'Jhonson', checked: false},
+          {id: 1, img:'', name:'Jhon',surname:'Fox',},
+          {id: 2, img:'', name:'Shally',surname:'Red',},
+          {id: 3, img:'', name:'Greg',surname:'Jhonson',},
       ]
     }
     }
@@ -27,10 +27,12 @@ class User extends Component {
         const  handleOnChange = () => {
           const updUsers = [...profiles];
           updUsers[index].isSelected = !updUsers[index].isSelected;
+          
           this.setState({profiles: updUsers})
           console.log(elem.isSelected)
         }
-        return  <li key={elem.id}  className=''>{elem.img} {elem.name} {elem.surname} <input name={elem.id} type='checkbox' checked={elem.isSelected} onChange={handleOnChange}/><button onClick={del}>Del</button></li>
+        
+        return  <li key={elem.id}  className={elem.isSelected ? 'Active' : 'none'}>{elem.img} {elem.name} {elem.surname} <input name={elem.id} type='checkbox' checked={elem.isSelected} onChange={handleOnChange}/><button onClick={del}>Del</button></li>
       })
       return (
         <article  >
